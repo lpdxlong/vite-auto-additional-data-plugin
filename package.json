@@ -1,0 +1,38 @@
+{
+	"name": "vite-auto-additional-data-plugin",
+	"description": "一个自动添加额外数据的插件",
+	"private": false,
+	"version": "1.0.0",
+	"type": "module",
+	"files": [
+		"dist",
+		"types"
+	],
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"typings": "types/index.d.ts",
+	"scripts": {
+		"lib": "gulp build"
+	},
+	"author": {
+		"name": "lpdx111",
+		"email": "1581489696@qq.com"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.24.7",
+		"@babel/plugin-transform-runtime": "^7.24.7",
+		"@babel/preset-env": "^7.24.7",
+		"@babel/runtime": "^7.24.7",
+		"del": "^7.1.0",
+		"gulp": "^5.0.0",
+		"gulp-babel": "^8.0.0",
+		"gulp-rename": "^2.0.0",
+		"gulp-typescript": "6.0.0-alpha.1",
+		"typescript": "^5.2.2",
+		"vite": "^5.2.0"
+	},
+	"bugs": {
+		"url": "https://github.com/lpdxlong/vite-auto-additional-data-plugin/issues"
+	},
+	"homepage": "https://github.com/lpdxlong/vite-auto-additional-data-plugin"
+}
