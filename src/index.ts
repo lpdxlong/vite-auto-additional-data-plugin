@@ -1,5 +1,5 @@
 import { Plugin } from 'vite';
-
+import { createFilter } from '@rollup/pluginutils';
 type AdditionalData = string | string[] | (() => string | string[]);
 type Options = {
 	[key: string]: AdditionalData;
@@ -22,12 +22,17 @@ export function additionalData(options: Options): Plugin<any> {
 		};
 	});
 
+	const filter = createFilter(['**/*.ts', '**/*.js'], ['node_modules/**']);
+
 	// 返回定义好的Vite插件对象。
 	return {
 		name: 'vite:auto-additional-data-plugin',
 		enforce: 'post',
 		// 定义代码转换函数，用于在匹配的文件中插入额外数据。
 		transform(code, id) {
+			if (!filter(id)) {
+				return null;
+			}
 			// 查找与当前文件路径匹配的额外数据插入规则。
 			let match = matches.find((match) => match.regExp.test(id));
 			// 如果没有匹配的规则，则不进行处理。

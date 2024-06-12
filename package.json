@@ -2,7 +2,7 @@
 	"name": "vite-auto-additional-data-plugin",
 	"description": "一个自动添加额外数据的插件",
 	"private": false,
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"type": "module",
 	"files": [
 		"dist",
@@ -23,6 +23,7 @@
 		"@babel/plugin-transform-runtime": "^7.24.7",
 		"@babel/preset-env": "^7.24.7",
 		"@babel/runtime": "^7.24.7",
+		"@rollup/pluginutils": "^5.1.0",
 		"del": "^7.1.0",
 		"gulp": "^5.0.0",
 		"gulp-babel": "^8.0.0",

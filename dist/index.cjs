@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.additionalData = additionalData;
+var _pluginutils = require("@rollup/pluginutils");
 /**
  * 创建一个自动添加额外数据的插件。
  *
@@ -21,12 +22,16 @@ function additionalData(options) {
       key: key
     };
   });
+  var filter = (0, _pluginutils.createFilter)(['**/*.ts', '**/*.js'], ['node_modules/**']);
   // 返回定义好的Vite插件对象。
   return {
     name: 'vite:auto-additional-data-plugin',
     enforce: 'post',
     // 定义代码转换函数，用于在匹配的文件中插入额外数据。
     transform: function transform(code, id) {
+      if (!filter(id)) {
+        return null;
+      }
       // 查找与当前文件路径匹配的额外数据插入规则。
       var match = matches.find(function (match) {
         return match.regExp.test(id);
